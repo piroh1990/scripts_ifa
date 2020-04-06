@@ -1,0 +1,46 @@
+#!/bin/bash
+
+#call: mkscript1 scriptname "Beschreibung" "Autor" Version
+
+#check if the right amount of input is there
+#if not ... ask for input
+if [[ "$#" != "4" ]]; then
+	read -p 'Scriptname  : ' filename
+	read -p 'Beschreibung: ' description
+	read -p 'Autor       : ' autor
+	read -p 'Version     : ' version
+else
+	filename=$1
+	description=$2
+	autor=$3
+	version=$4
+fi 
+
+#check if file already exists
+while [[ -e "$filename" ]]; do
+	echo "Die Datei $filename existiert bereits"
+	read -p "Scriptname  : " filename 
+done
+
+
+
+#setting date
+date=`date +%Y-%m-%d`
+
+#creating script
+echo "#!/bin/bash" > $filename
+echo "# Name            : $filename" >> $filename
+echo "# Beschreibung    : $description" >> $filename
+echo "# Autor           : $autor" >> $filename
+echo "# Version         : $version" >> $filename
+echo "# Datum:          : $date " >> $filename
+echo "=========================================" >> $filename
+echo " " >> $filename
+echo " " >> $filename
+
+#executable
+chmod +x $filename
+
+#opening editor
+vi $filename "+call cursor(9, 0)"
+
