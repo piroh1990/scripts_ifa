@@ -1,0 +1,11 @@
+#!/bin/bash
+
+tag=`date +%a`
+case "$tag" in
+	Mo|Mon|Do|Thu) 	echo "Backup Machen" ;;
+	Di|Tue) 	echo "Teammeting" ;;
+	Sa|Sat)		echo "Einkaufen"
+			echo "Fussball" ;;
+	So|Sat)		echo "Familie" ;;
+	*) 		echo "Kein Plan" 
+esac 

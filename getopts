@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while getopts abc:D: opt 
+do
+	case $opt in
+		a) echo "Option -a" ;;
+		b) echo "Option -b" ;;
+		c) echo "option -c : ($OPTARG)" ;;
+		D) echo "opton -D : ($OPTARG)" ;;
+		
+	esac 
+done
