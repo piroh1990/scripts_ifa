@@ -1,7 +1,11 @@
 #!/bin/bash
 
+anzahl=1
+
 while [ ! -z $1 ]
 do
-	echo $1
+	echo "Der $anzahl. Parameter ist $1 "
+	echo $#
 	shift
+	anzahl=$((anzahl+1))
 done

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+input=""
+
+while [ "$input" != "ende" ]
+do
+	read -p "Ihre Eingabe, Schluss mit ende: " input
+	echo "Sie haben folgendes eingegeben: $input" 
+done
+echo "Das ende ist erreicht" 

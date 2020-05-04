@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then 
+	echo "bitte nur eine zahl angeben"
+	exit 1;
+fi 
+
+re='^[0-9]+$'
+if ! [[ $1 =~ $re ]] ; then
+   echo "Bitte nur Ganze zahlen wiedergeben" >&2; exit 1
+fi
+
+number=$1
+
+while [ $number -gt "0" ]
+do
+	echo $number
+	number=$((number-1))
+done
