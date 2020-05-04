@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# != "2" ]; then 
+	echo "falsche anzahl"
+	exit 1
+elif [ "$1" = "$2" ]; then
+	echo "gleich"
+else
+	echo "nicht gleich"
+fi
+
