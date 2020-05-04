@@ -1,0 +1,7 @@
+#!/bin/bash
+df -k --output=pcent,target |tr -d '%' | sed -e '1d' | while read prozent mount
+do 
+	if [ $prozent -gt "$1" ] && [ $prozent != "100" ]; then 
+		echo "$mount ist mehr als $prozent% gefüllt"
+	fi
+done
