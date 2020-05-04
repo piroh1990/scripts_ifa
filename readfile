@@ -1,0 +1,13 @@
+#!/bin/bash
+
+datei=$1
+number="1"
+while read zeile
+do
+	echo "$number: $zeile" 
+	number=$((number + 1 ))
+done < $datei
+(( number-- ))
+echo " "
+echo "Anzahl Zeilen: $number" 
+
