@@ -1,0 +1,26 @@
+#!/bin/bash
+
+name() {
+	echo "hallo" 
+}
+
+summe() {
+	sum=0
+	for i in $@
+	do 
+		let sum=sum+$i
+	done
+	echo $sum
+}
+
+summe 1 2 3 4 
+
+function name2() {
+
+	echo "welt"
+	return 1 
+}
+
+
+name
+name2

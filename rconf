@@ -1,0 +1,24 @@
+#!/bin/bash
+
+while getopts f:d: opt 2>/dev/null
+do
+        case $opt in
+                f) file=$OPTARG ;;
+		?) echo "unbekannte option"
+		break;
+        esac
+done
+
+
+
+declare -A array
+
+while IFS='=' read -r key value 
+do
+	array[$key]=$value
+done < "$file"
+
+for key in ${!array[@]}
+do
+	echo "$key ist ${array[$key]}"
+done

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+files=(*)
+
+for file in ${files[*]}
+do
+	if [ -d $file ];then
+		echo "$file ist ein Ordner"
+	elif [ -L $file ];then
+		echo "$file ist ein Symlink"
+	elif [ -f $file ];then
+		echo "$file ist eine Datei" 
+	else 
+		echo "$file ist nichts"
+	fi
+done

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+is_number() {
+	if [[ "$1" =~ ^[+-]?[0-9]+\.?[0-9]*$ ]]; then
+		return 0
+	else 
+		return 1
+	fi
+ 
+}
+eingabe=1
+echo "exit zum beenden"
+while [ $eingabe != "exit" ]
+do
+	read -p 'Eingabe : ' eingabe
+	if [ $eingabe == "exit" ];then
+		echo "wird beendet" 
+	elif is_number $eingabe;then		
+		echo "$eingabe ist eine zahl"
+	else
+		echo "$eingabe ist keine zahl" 
+	fi	
+done
+
